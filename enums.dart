@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:vinamilk_b2b/exceptions/exception.dart';
 
 extension EnumListExtension<T extends Enum> on Iterable<T> {
@@ -9,4 +11,6 @@ extension EnumListExtension<T extends Enum> on Iterable<T> {
     }
     return defaultValue;
   }
+
+  T get random => this.toList()[Random().nextInt(9999) % length];
 }
