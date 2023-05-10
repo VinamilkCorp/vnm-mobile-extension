@@ -21,4 +21,15 @@ extension StringFormat on String {
     }
     return "";
   }
+
+  String get phone2Int {
+    var phoneNumber = this.replaceAll(" ", "").trim();
+    if (phoneNumber.length == 10 && phoneNumber.startsWith("0")) {
+      return '84${phoneNumber.substring(1)}';
+    }
+    if (phoneNumber.length == 9 && !phoneNumber.startsWith("0")) {
+      return '84$phoneNumber';
+    }
+    return phoneNumber;
+  }
 }
