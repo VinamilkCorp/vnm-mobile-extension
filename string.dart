@@ -1,25 +1,28 @@
-import '../core/exception/index.dart';
 import 'num.dart';
 
 extension StringFormat on String {
   String get fmtNumber {
+    String value = "";
     try {
       num number = num.parse(this);
-      return number.fmt;
+      value = number.fmt;
     } catch (exception, stackTrace) {
-      VNMException().capture(exception, stackTrace);
+      throw exception;
+    } finally {
+      return value;
     }
-    return "";
   }
 
   String get vnd {
+    String value = "";
     try {
       num number = num.parse(this);
-      return number.vnd;
+      value = number.vnd;
     } catch (exception, stackTrace) {
-      VNMException().capture(exception, stackTrace);
+      throw exception;
+    } finally {
+      return value;
     }
-    return "";
   }
 
   String get phone2Int {

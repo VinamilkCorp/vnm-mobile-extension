@@ -1,31 +1,33 @@
 import 'package:intl/intl.dart';
 
-import '../core/exception/index.dart';
-
 extension NumFormat on num {
   String get fmt {
+    String value = "";
     try {
-      return NumberFormat.decimalPattern("vi_vn")
+      value = NumberFormat.decimalPattern("vi_vn")
           .format(this)
           .replaceAll(",", "*")
           .replaceAll(".", ",")
           .replaceAll("*", ".");
     } catch (exception, stackTrace) {
-      VNMException().capture(exception, stackTrace);
+      throw exception;
+    } finally {
+      return value;
     }
-    return "";
   }
 
   String get vnd {
+    String value = "";
     try {
-      return NumberFormat.currency(locale: "vi_vn", symbol: "đ")
+      value = NumberFormat.currency(locale: "vi_vn", symbol: "đ")
           .format(this)
           .replaceAll(",", "*")
           .replaceAll(".", ",")
           .replaceAll("*", ".");
     } catch (exception, stackTrace) {
-      VNMException().capture(exception, stackTrace);
+      throw exception;
+    } finally {
+      return value;
     }
-    return "";
   }
 }
