@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:vinamilk_b2b/vnm/core/exception/exception.dart';
 
 extension NumFormat on num {
   String get fmt {
@@ -10,7 +11,7 @@ extension NumFormat on num {
           .replaceAll(".", ",")
           .replaceAll("*", ".");
     } catch (exception, stackTrace) {
-      throw exception;
+      VNMException().capture(exception, stackTrace);
     } finally {
       return value;
     }
@@ -25,7 +26,7 @@ extension NumFormat on num {
           .replaceAll(".", ",")
           .replaceAll("*", ".");
     } catch (exception, stackTrace) {
-      throw exception;
+      VNMException().capture(exception, stackTrace);
     } finally {
       return value;
     }

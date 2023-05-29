@@ -1,3 +1,5 @@
+import 'package:vinamilk_b2b/vnm/core/exception/exception.dart';
+
 import 'num.dart';
 
 extension StringFormat on String {
@@ -7,7 +9,7 @@ extension StringFormat on String {
       num number = num.parse(this);
       value = number.fmt;
     } catch (exception, stackTrace) {
-      throw exception;
+      VNMException().capture(exception, stackTrace);
     } finally {
       return value;
     }
@@ -19,7 +21,7 @@ extension StringFormat on String {
       num number = num.parse(this);
       value = number.vnd;
     } catch (exception, stackTrace) {
-      throw exception;
+      VNMException().capture(exception, stackTrace);
     } finally {
       return value;
     }
