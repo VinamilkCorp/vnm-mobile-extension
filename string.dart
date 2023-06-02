@@ -1,5 +1,5 @@
-import 'package:vinamilk_b2b/vnm/core/exception/exception.dart';
 
+import '../core/exception/exception.dart';
 import 'num.dart';
 
 extension StringFormat on String {
