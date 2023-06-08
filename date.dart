@@ -8,4 +8,6 @@ extension DateTimeEx on DateTime {
   String get ddMM => DateFormat("dd/MM").format(this);
 
   String get MMyyyy => DateFormat("MM/yyyy").format(this);
+
+  String get ddMMhhmm => DateFormat("dd/MM - HH:mm").format(this);
 }
