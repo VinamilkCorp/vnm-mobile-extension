@@ -28,12 +28,24 @@ extension StringFormat on String {
 
   String get phone2Int {
     var phoneNumber = replaceAll(" ", "").trim();
-    if (phoneNumber.length == 10 && phoneNumber.startsWith("0")) {
-      return '84${phoneNumber.substring(1)}';
+    if (phoneNumber.startsWith("0")) {
+      phoneNumber = phoneNumber.substring(1);
     }
-    if (phoneNumber.length == 9 && !phoneNumber.startsWith("0")) {
-      return '84$phoneNumber';
+    return '84$phoneNumber';
+  }
+
+  String get phoneSplit {
+    var phoneNumber = replaceAll(" ", "").trim();
+    if (phoneNumber.startsWith("+") && phoneNumber.length > 11) {
+      var patterns = [
+        "(${phoneNumber.substring(0, 3)})",
+        phoneNumber.substring(3, 6),
+        phoneNumber.substring(6, 9),
+        phoneNumber.substring(9)
+      ];
+      return patterns.join(" ");
+    } else {
+      return phoneNumber;
     }
-    return phoneNumber;
   }
 }
