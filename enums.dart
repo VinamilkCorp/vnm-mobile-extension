@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import '../core/exception/exception.dart';
+import '../material/exception/exception.dart';
 
 extension EnumListExtension<T extends Enum> on Iterable<T> {
   T byNameIfNull(String name, T defaultValue) {
